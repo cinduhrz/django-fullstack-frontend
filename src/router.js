@@ -2,11 +2,11 @@ import {createBrowserRouter, createRoutesFromElements, Route, Routes} from "reac
 import App from "./App"
 
 const router = createBrowserRouter(createRoutesFromElements(
-    <Routes>
+    <>
         <Route path="/" element={<App/>}>
 
         </Route>
-    </Routes>
+    </>
 ))
 
 export default router

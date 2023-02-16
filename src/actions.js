@@ -53,3 +53,17 @@ export async function UpdateAction({request, params}){
     // redirect user back to index page
     return redirect("/")
 }
+
+
+export async function DeleteAction({params}){
+    // get the id
+    const id = params.id
+
+    // send request
+    await fetch(url + id + "/", {
+        method: "delete"
+    })
+
+    // redirect
+    return redirect("/")
+}

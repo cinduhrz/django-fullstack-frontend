@@ -24,6 +24,10 @@ const Show = (props) => {
             </Form>
         </div>
 
+        <Form action={`/delete/${post.id}`} method="post">
+            <button>Delete Todo</button>
+        </Form>
+
         <Link to="/">
             <button>Go Back</button>
         </Link>

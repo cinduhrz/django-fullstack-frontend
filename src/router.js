@@ -2,11 +2,15 @@ import {createBrowserRouter, createRoutesFromElements, Route, Routes} from "reac
 import App from "./App"
 import Index from "./pages/Index"
 import Show from "./pages/Show"
+import { IndexLoader } from "./loaders"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
         <Route path="/" element={<App/>}>
-            <Route path="" element={<Index/>}/>
+            <Route
+                path=""
+                loader={IndexLoader}
+                element={<Index/>}/>
             <Route path="post/:id" element={<Show/>}/>
             <Route path="create" />
             <Route path="update/:id" />

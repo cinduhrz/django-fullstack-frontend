@@ -11,3 +11,10 @@ export async function IndexLoader(){
 
     return data
 }
+
+export async function ShowLoader({params}){
+    const response = await fetch(url + params.id + "/")
+    const data = await response.json()
+    console.log("SHOW LOADER: ", data)
+    return data
+}

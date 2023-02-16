@@ -1,7 +1,7 @@
 import url from "./url";
 import { redirect } from "react-router-dom"
 
-export async function CreateAction({request}){
+const generateTodoObject = async (request) => {
     // get the form data
     const formData = await request.formData()
 
@@ -10,6 +10,10 @@ export async function CreateAction({request}){
         subject: formData.get("subject"),
         details: formData.get("details")
     }
+}
+
+export async function CreateAction({request}){
+    const newTodo = await generateTodoObject()
 
     // request to create route
     // dont needa save in var bc we dont needa do anything w/ the response, we just needa send it to api
@@ -29,14 +33,7 @@ export async function CreateAction({request}){
 
 
 export async function UpdateAction({request, params}){
-    // get the form data
-    const formData = await request.formData()
-
-    // construct body of new todo to send to backend
-    const newTodo = {
-        subject: formData.get("subject"),
-        details: formData.get("details")
-    }
+    const newTodo = await generateTodoObject()
 
     // request to create route
     // dont needa save in var bc we dont needa do anything w/ the response, we just needa send it to api
